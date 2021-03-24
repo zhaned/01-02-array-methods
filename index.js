@@ -9,7 +9,7 @@ const maps = (array, callback) => {
 const filters = (array, callback) => {
   let newArray = [];
   for (let i = 0; i < array.length; i++) {
-    if(callback(array[i])) newArray = [...newArray, array[i]];
+    if (callback(array[i])) newArray = [...newArray, array[i]];
   }
   return newArray;
 };
@@ -17,27 +17,30 @@ const filters = (array, callback) => {
 const findIndexes = (array, callback) => {
   let index = -1;
   for (let i = 0; i < array.length; i++) {
-    if(callback(array[i])){ 
-    index = i;
-    return index;
-    };
-  };
+    if (callback(array[i])) {
+      index = i;
+      return index;
+    }
+  }
   return index;
 };
 
 const reduces = (array, callback, initialValue) => {
   let accumulated = 0;
-  if(initialValue){
+  if (initialValue) {
     accumulated = initialValue;
   }
-  for(let i = 0; i < array.length; i++){
-    if(array[i]) accumulated = callback(accumulated, array[i]);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]) accumulated = callback(accumulated, array[i]);
   }
   return accumulated;
 };
 
-const everys = () => {
-
+const everys = (array, callback) => {
+  for (let i = 0; i < array.length; i++) {
+    if (!callback(array[i])) return false;
+  }
+  return true;
 };
 
 module.exports = {

@@ -39,12 +39,20 @@ describe('tests functions similar to array operations', () => {
 
     expect(newArray).toEqual(14);
   });
+
+  it('takes array and callback and returns true if all are true', () => {
+    const array = ['flower', 'rock', 'tree', 'cloud', 'field'];
+    const callback = (item) => item.startsWith('f');
+    const newArray = everys(array, callback);
+
+    expect(newArray).toBeFalsy();
+  });
+
+  it('takes array of numbers and callback and returns true if all are true', () => {
+    const array = [1, 2, 3, 4, 4];
+    const callback = (item) => typeof item === 'number';
+    const newArray = everys(array, callback);
+
+    expect(newArray).toBeTruthy();
+  });
 });
-
-// it('', () => {
-//   const array = ;
-//   const callback = (item) => {};
-//   const newArray = filters(array, callback);
-
-//   expect(newArray).toEqual();
-// });
