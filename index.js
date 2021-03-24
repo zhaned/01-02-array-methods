@@ -25,8 +25,15 @@ const findIndexes = (array, callback) => {
   return index;
 };
 
-const reduces = () => {
-
+const reduces = (array, callback, initialValue) => {
+  let accumulated = 0;
+  if(initialValue){
+    accumulated = initialValue;
+  }
+  for(let i = 0; i < array.length; i++){
+    if(array[i]) accumulated = callback(accumulated, array[i]);
+  }
+  return accumulated;
 };
 
 const everys = () => {
