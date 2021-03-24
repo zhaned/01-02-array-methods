@@ -13,11 +13,28 @@ describe('tests functions similar to array operations', () => {
   it('takes array and callback and returns first index thats true', () => {
     const array = ['flower', 'rock', 'tree', 'cloud', 'field'];
     const callback = (item) => {
-      if(item.startsWith('f')) return item;
+      if (item.startsWith('f')) return item;
     };
     const newArray = filters(array, callback);
 
     expect(newArray).toEqual(['flower', 'field']);
   });
-  
+
+  it('takes array and callback and returns index of first true item', () => {
+    const array = ['flower', 'rock', 'tree', 'cloud', 'field'];
+    const callback = (item) => {
+      if (item.startsWith('r')) return item;
+    };
+    const newArray = findIndexes(array, callback);
+
+    expect(newArray).toEqual(1);
+  });
 });
+
+// it('', () => {
+//   const array = ;
+//   const callback = (item) => {};
+//   const newArray = filters(array, callback);
+
+//   expect(newArray).toEqual();
+// });
