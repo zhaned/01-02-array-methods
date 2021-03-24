@@ -1,10 +1,4 @@
-const {
-  maps,
-  filters,
-  findIndexes,
-  reduces,
-  everys
-} = require('./index');
+const { maps, filters, findIndexes, reduces, everys } = require('./index');
 
 describe('tests functions similar to array operations', () => {
   it('takes an array and doubles it', () => {
@@ -16,4 +10,14 @@ describe('tests functions similar to array operations', () => {
     expect(newArray).toEqual([2, 4, 6, 8, , 10]);
   });
 
+  it('takes array and callback and returns first index thats true', () => {
+    const array = ['flower', 'rock', 'tree', 'cloud', 'field'];
+    const callback = (item) => {
+      if(item.startsWith('f')) return item;
+    };
+    const newArray = filters(array, callback);
+
+    expect(newArray).toEqual(['flower', 'field']);
+  });
+  
 });
